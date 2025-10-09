@@ -1,6 +1,6 @@
-# template
+# weather-app
 
-[The Odin Project: Template Repositories](https://www.theodinproject.com/lessons/node-path-javascript-revisiting-webpack#template-repositories)
+[The Odin Project: Weather App](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 
 ## Resources
 
