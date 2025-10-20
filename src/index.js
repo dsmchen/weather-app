@@ -1,6 +1,6 @@
 import "./style.css";
-import { getWeatherData } from "./services/apiService";
+import { search } from "./components/header";
 
 window.addEventListener("load", () => {
-  getWeatherData("london");
+  search();
 });
