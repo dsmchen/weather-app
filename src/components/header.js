@@ -5,10 +5,10 @@ import image from "../assets/images/sun_with_face.png";
 (function () {
   const headerContainer = document.querySelector("header .container");
 
-  const icon = new Image();
-  icon.src = image;
+  const logo = new Image();
+  logo.src = image;
 
-  headerContainer.prepend(icon);
+  headerContainer.prepend(logo);
 })();
 
 export function search() {
