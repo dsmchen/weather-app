@@ -8,7 +8,11 @@
   <body>
     <header>
       <div class="container">
-        <h1><span class="location"></span> <span class="temp"></span></h1>
+        <h1>Weather App</h1>
+        <h2 class="header-current-weather">
+          <span class="location"></span> <span class="temp"></span>
+          <img src="" alt="" />
+        </h2>
         <form role="search">
           <label for="location-search">
             <span class="visually-hidden">Location Search</span>
@@ -32,12 +36,14 @@
             <h2 class="date"></h2>
           </div>
           <div class="bottom">
-            <img src="/" alt="Placeholder image" />
-            <p class="desc"></p>
-            <ul>
-              <li class="high">High: <span></span></li>
-              <li class="low">Low: <span></span></li>
-            </ul>
+            <img src="" alt="" />
+            <div class="text">
+              <p class="desc"></p>
+              <ul>
+                <li class="high">High: <span></span></li>
+                <li class="low">Low: <span></span></li>
+              </ul>
+            </div>
           </div>
         </section>
         <section class="current-weather">
@@ -46,9 +52,11 @@
             <h2 class="time"></h2>
           </div>
           <div class="bottom">
-            <img src="/" alt="Placeholder image" />
-            <h3 class="temp"></h3>
-            <p class="conditions"></p>
+            <img src="" alt="" />
+            <div class="text">
+              <h3 class="temp"></h3>
+              <p class="conditions"></p>
+            </div>
           </div>
         </section>
       </div>

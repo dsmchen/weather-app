@@ -3,12 +3,12 @@ import { displayResults } from "./main";
 import image from "../assets/logo/sun_with_face.png";
 
 (function () {
-  const headerContainer = document.querySelector("header .container");
+  const h1El = document.querySelector("h1");
 
   const logo = new Image();
   logo.src = image;
 
-  headerContainer.prepend(logo);
+  h1El.prepend(logo);
 })();
 
 export function search() {

@@ -7,8 +7,10 @@ export async function initDisplay() {
 }
 
 export function displayResults(results) {
-  const locationEl = document.querySelector("h1 .location");
-  const tempEl = document.querySelector("h1 .temp");
+  // Text
+
+  const locationEl = document.querySelector("h2 .location");
+  const tempEl = document.querySelector("h2 .temp");
   const dateEl = document.querySelector("h2.date");
   const descEl = document.querySelector("p.desc");
   const highEl = document.querySelector("li.high span");
@@ -26,4 +28,22 @@ export function displayResults(results) {
   timeEl.textContent = results.currentConditions.datetime.slice(0, 5);
   tempEl2.textContent = `${results.currentConditions.temp}°C`;
   conditionsEl.textContent = results.currentConditions.conditions;
+
+  // Icons
+
+  const currentIcon = results.currentConditions.icon;
+  const todayIcon = results.todayConditions.icon;
+  const headerImg = document.querySelector(".header-current-weather img");
+  const todayImg = document.querySelector(".today-weather img");
+  const currentImg = document.querySelector(".current-weather img");
+
+  async function setIcon(iconName, img) {
+    const module = await import(`../assets/weatherIcons/${iconName}.svg`);
+    img.src = module.default;
+    img.alt = iconName;
+  }
+
+  setIcon(currentIcon, headerImg);
+  setIcon(todayIcon, todayImg);
+  setIcon(currentIcon, currentImg);
 }
