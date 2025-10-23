@@ -1,4 +1,5 @@
 import { getWeatherData, processWeatherData } from "../services/apiService";
+import { format } from "date-fns";
 
 export async function initDisplay() {
   const data = await getWeatherData("london");
@@ -21,7 +22,10 @@ export function displayResults(results) {
 
   locationEl.textContent = results.address;
   tempEl.textContent = `${results.currentConditions.temp}°C`;
-  dateEl.textContent = results.todayConditions.datetime;
+  dateEl.textContent = format(
+    new Date(results.todayConditions.datetime),
+    "dd MMM",
+  );
   descEl.textContent = results.todayConditions.description;
   highEl.textContent = `${results.todayConditions.tempmax}°C`;
   lowEl.textContent = `${results.todayConditions.tempmin}°C`;
