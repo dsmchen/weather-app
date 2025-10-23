@@ -19,9 +19,16 @@ export function search() {
   async function handleSubmit(e) {
     e.preventDefault();
     showLoadingSpinner();
+
+    if (searchInput.value === "") {
+      const locationEl = document.querySelector("h2 .location");
+      searchInput.value = locationEl.textContent;
+    }
+
     const data = await getWeatherData(searchInput.value);
     const appData = processWeatherData(data);
     displayResults(appData);
+    searchInput.value = "";
     hideLoadingSpinner();
   }
 
