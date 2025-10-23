@@ -1,3 +1,4 @@
+import { showLoadingSpinner, hideLoadingSpinner } from "./loading";
 import { getWeatherData, processWeatherData } from "../services/apiService";
 import { displayResults } from "./main";
 import image from "../assets/logo/sun_with_face.png";
@@ -17,9 +18,11 @@ export function search() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    showLoadingSpinner();
     const data = await getWeatherData(searchInput.value);
     const appData = processWeatherData(data);
     displayResults(appData);
+    hideLoadingSpinner();
   }
 
   submitBtn.addEventListener("click", handleSubmit);

@@ -92,13 +92,6 @@ h6 {
 /* Weather App */
 
 :root {
-  /* --red-50: #ffebee;
-  --red-600: #e53935;
-  --green-800: #2e7d32;
-  --yellow-50: #fffde7;
-  --yellow-600: #fdd835;
-  --orange-50: #fff3e0;
-  --orange-600: #fb8c00; */
   --gray-100: #f5f5f5;
   --gray-400: #bdbdbd;
   --gray-900: #212121;
@@ -113,6 +106,57 @@ body {
     sans-serif;
   color: var(--gray-900);
   background-color: var(--gray-100);
+}
+
+/* Overlay and Spinner */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.spinner {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+}
+
+.spinner-icon {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--gray-100);
+  border-top: 5px solid var(--gray-400);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+.spinner-text {
+  font-weight: bold;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Header */
