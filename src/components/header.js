@@ -26,8 +26,12 @@ export function search() {
     }
 
     const data = await getWeatherData(searchInput.value);
-    const appData = processWeatherData(data);
-    displayResults(appData);
+
+    if (data) {
+      const appData = processWeatherData(data);
+      displayResults(appData);
+    }
+
     searchInput.value = "";
     hideLoadingSpinner();
   }

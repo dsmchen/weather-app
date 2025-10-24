@@ -1,14 +1,24 @@
+import { showError, hideError } from "../components/error";
+import { hideLoadingSpinner } from "../components/loading";
+
 export async function getWeatherData(location) {
+  let response;
+
   try {
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&key=MSYZLNK9EFFY75WBFFZMMSZBL&contentType=json`;
-    const response = await fetch(url);
-    if (!response.ok) {
-      return console.error("Response status:", response.status);
-    }
-    const data = await response.json();
-    return data;
+    response = await fetch(url);
   } catch (error) {
     console.error(error);
+  }
+
+  if (response?.ok) {
+    hideError();
+    const data = await response.json();
+    return data;
+  } else {
+    console.error(`HTTP Response Code: ${response?.status}`);
+    showError(response?.status);
+    hideLoadingSpinner();
   }
 }
 

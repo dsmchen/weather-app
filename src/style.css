@@ -255,6 +255,9 @@ main .container {
   width: 960px;
   max-width: 100%;
   padding: 20px;
+}
+
+main .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -263,7 +266,6 @@ main .container {
 section {
   border-radius: 10px;
   border: 2px solid var(--gray-400);
-  margin-bottom: 20px;
   background-color: var(--white);
 }
 
@@ -326,4 +328,10 @@ section .temp {
 
 section .conditions {
   font-weight: bold;
+}
+
+/* Error */
+
+.error {
+  display: none;
 }
