@@ -26,17 +26,17 @@ export function processWeatherData(data) {
   const appData = {
     address: data.resolvedAddress,
     currentConditions: {
-      conditions: data.currentConditions.conditions,
-      datetime: data.currentConditions.datetime,
-      icon: data.currentConditions.icon,
-      temp: data.currentConditions.temp,
+      conditions: data.currentConditions?.conditions,
+      datetime: data.currentConditions?.datetime,
+      icon: data.currentConditions?.icon,
+      temp: data.currentConditions?.temp,
     },
     todayConditions: {
-      datetime: data.days[0].datetime,
-      description: data.days[0].description,
-      icon: data.days[0].icon,
-      tempmax: data.days[0].tempmax,
-      tempmin: data.days[0].tempmin,
+      datetime: data.days[0]?.datetime,
+      description: data.days[0]?.description,
+      icon: data.days[0]?.icon,
+      tempmax: data.days[0]?.tempmax,
+      tempmin: data.days[0]?.tempmin,
     },
   };
   return appData;
