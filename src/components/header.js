@@ -2,6 +2,7 @@ import { showLoadingSpinner, hideLoadingSpinner } from "./loading";
 import { getWeatherData, processWeatherData } from "../services/apiService";
 import { displayResults } from "./main";
 import image from "../assets/logo/sun_with_face.png";
+import { hideError, showError } from "./error";
 
 (function () {
   const h1El = document.querySelector("h1");
@@ -27,9 +28,12 @@ export function search() {
 
     const data = await getWeatherData(searchInput.value);
 
-    if (data) {
+    if (data?.address) {
       const appData = processWeatherData(data);
       displayResults(appData);
+      hideError();
+    } else {
+      showError(data?.status);
     }
 
     searchInput.value = "";

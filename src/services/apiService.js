@@ -1,4 +1,3 @@
-import { showError, hideError } from "../components/error";
 import { hideLoadingSpinner } from "../components/loading";
 
 export async function getWeatherData(location) {
@@ -12,13 +11,12 @@ export async function getWeatherData(location) {
   }
 
   if (response?.ok) {
-    hideError();
     const data = await response.json();
     return data;
   } else {
     console.error(`HTTP Response Code: ${response?.status}`);
-    showError(response?.status);
     hideLoadingSpinner();
+    return response;
   }
 }
 

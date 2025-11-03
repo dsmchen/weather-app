@@ -1,12 +1,16 @@
 import { getWeatherData, processWeatherData } from "../services/apiService";
+import { hideError, showError } from "./error";
 import { hideLoadingSpinner } from "./loading";
 import { format } from "date-fns";
 
 export async function initDisplay() {
   const data = await getWeatherData("london");
-  if (data) {
+  if (data?.address) {
     const appData = processWeatherData(data);
     displayResults(appData);
+    hideError();
+  } else {
+    showError(data?.status);
   }
   hideLoadingSpinner();
 }
