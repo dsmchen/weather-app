@@ -1,10 +1,10 @@
 import { hideLoadingSpinner } from "../components/loading";
 
-export async function getWeatherData(location) {
+export async function getWeatherData(location, unit = "metric") {
   let response;
 
   try {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=metric&key=MSYZLNK9EFFY75WBFFZMMSZBL&contentType=json`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/today?unitGroup=${unit}&key=MSYZLNK9EFFY75WBFFZMMSZBL&contentType=json`;
     response = await fetch(url);
   } catch (error) {
     console.error(error);
